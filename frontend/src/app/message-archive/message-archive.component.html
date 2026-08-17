@@ -1,0 +1,123 @@
+<div class="archive-page">
+
+    <div class="archive-header">
+
+        <h1>
+            Message Archive
+        </h1>
+
+        <p>
+            Permanent record of all user messages, complaints,
+            and administrative communications.
+        </p>
+
+    </div>
+
+    <div
+        class="archive-card"
+        *ngFor="let msg of archiveMessages">
+
+        <div class="archive-top">
+
+            <div>
+
+                <span
+                    class="type-badge complaint"
+                    *ngIf="msg.is_complaint">
+
+                    Complaint
+
+                </span>
+
+                <span
+                    class="type-badge message"
+                    *ngIf="!msg.is_complaint">
+
+                    Message
+
+                </span>
+
+            </div>
+
+            <button
+                class="delete-btn"
+                (click)="deleteMessage(msg.id)">
+
+                Delete
+
+            </button>
+
+        </div>
+
+        <h3>
+            {{ msg.subject }}
+        </h3>
+
+        <div class="user-row">
+
+            <p>
+
+                <strong>From:</strong>
+
+                {{ msg.sender_username }}
+
+            </p>
+
+            <p>
+
+                <strong>To:</strong>
+
+                {{ msg.receiver_username }}
+
+            </p>
+
+        </div>
+
+        <div class="message-body">
+
+            {{ msg.message }}
+
+        </div>
+
+        <div
+            class="attachment-box"
+            *ngIf="msg.attachment">
+
+            <a
+                [href]="'http://localhost:8000' + msg.attachment"
+                target="_blank">
+
+                Download Attachment
+
+            </a>
+
+        </div>
+
+        <div class="footer-row">
+
+            <span>
+
+                {{ msg.created_at }}
+
+            </span>
+
+            <span>
+
+                Read:
+                {{ msg.is_read ? 'Yes' : 'No' }}
+
+            </span>
+
+        </div>
+
+    </div>
+
+    <div
+        class="empty-box"
+        *ngIf="archiveMessages.length == 0">
+
+        No archived messages found.
+
+    </div>
+
+</div>

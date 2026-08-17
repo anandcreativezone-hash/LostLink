@@ -1,0 +1,80 @@
+<div class="admin-container">
+<div class="top-buttons">
+
+    <button
+    routerLink="/"
+    class="home-btn">
+
+        ← Back to Home
+
+    </button>
+
+</div>
+    <div class="admin-card">
+
+        <div class="security-badge">
+
+            <div class="shield"></div>
+
+        </div>
+
+        <h1 class="admin-title">
+            Authority Access Portal
+        </h1>
+
+        <p class="admin-subtitle">
+            Restricted Administrative Environment
+        </p>
+
+        <div class="info-panel">
+
+            <h3>
+                Administrative Control Center
+            </h3>
+
+            <p>
+                This portal is reserved exclusively for authorized administrators.
+                Access provides governance capabilities over user registrations,
+                approval workflows, account moderation, platform supervision,
+                and operational monitoring.
+            </p>
+
+            <p>
+                Every approval and account action directly affects system access.
+                Administrators are responsible for validating registrations,
+                maintaining platform integrity, and ensuring secure operation
+                of the Lost & Found ecosystem.
+            </p>
+
+            <p>
+                Unauthorized access attempts are prohibited.
+                Only approved authority accounts should proceed beyond this point.
+            </p>
+
+        </div>
+
+        <div class="login-section">
+
+            <input
+                type="text"
+                placeholder="Authority Username"
+                [(ngModel)]="username">
+
+            <input
+                type="password"
+                placeholder="Authority Password"
+                [(ngModel)]="password">
+
+            <button
+                class="login-btn"
+                (click)="login()">
+
+                Access Administrative Panel
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>

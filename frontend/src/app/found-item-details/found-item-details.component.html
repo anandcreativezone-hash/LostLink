@@ -1,0 +1,133 @@
+<div class="details-page">
+
+    <div class="top-buttons">
+
+        <button
+        routerLink="/dashboard"
+        class="dashboard-btn">
+
+            ← Dashboard
+
+        </button>
+
+        <button
+        onclick="history.back()"
+        class="back-btn">
+
+            ← Back
+
+        </button>
+
+    </div>
+
+    <div
+    class="details-card"
+    *ngIf="item">
+
+        <div class="image-section">
+
+            <img
+            *ngIf="item.image"
+            [src]="'http://localhost:8000'+item.image">
+
+        </div>
+
+        <div class="details-content">
+
+            <div class="title-row">
+
+                <h1>
+
+                    {{item.title}}
+
+                </h1>
+
+                <span
+                class="status available"
+                *ngIf="item.status=='Available'">
+
+                    Available
+
+                </span>
+
+                <span
+                class="status pending"
+                *ngIf="item.status=='Claim Pending'">
+
+                    Claim Pending
+
+                </span>
+
+                <span
+                class="status resolved"
+                *ngIf="item.status=='Resolved'">
+
+                    Resolved
+
+                </span>
+
+            </div>
+
+            <p class="description">
+
+                {{item.description}}
+
+            </p>
+
+            <div class="info-grid">
+
+                <div>
+
+                    <strong>Category</strong>
+
+                    <span>
+
+                        {{item.category}}
+
+                    </span>
+
+                </div>
+
+                <div>
+
+                    <strong>Location</strong>
+
+                    <span>
+
+                        {{item.location}}
+
+                    </span>
+
+                </div>
+
+                <div>
+
+                    <strong>Found By</strong>
+
+                    <span>
+
+                        {{item.owner_username}}
+
+                    </span>
+
+                </div>
+
+            </div>
+
+            <button
+
+            *ngIf="item.status=='Available'"
+
+            class="claim-btn"
+
+            (click)="claimItem()">
+
+                Claim This Item
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>

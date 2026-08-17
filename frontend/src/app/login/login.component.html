@@ -1,0 +1,68 @@
+<div class="login-page">
+<div class="top-buttons">
+
+    <button
+    routerLink="/"
+    class="home-btn">
+
+        ← Back to Home
+
+    </button>
+
+</div>
+    <div class="login-card">
+
+        <div class="logo-box"></div>
+
+        <h1 class="title">
+            LostLink Portal
+        </h1>
+
+        <p class="subtitle">
+            Welcome back to the LostLink Recovery Network.
+            Sign in to manage reports, track item recovery progress,
+            view AI-generated matches and access your personal dashboard.
+        </p>
+
+        <div class="instruction-box">
+
+            <h5>User Instructions</h5>
+
+            <ul>
+                <li>Use your approved account credentials.</li>
+                <li>New users must register and wait for admin approval.</li>
+                <li>Report lost and found items accurately.</li>
+                <li>Monitor your account activity regularly.</li>
+            </ul>
+
+        </div>
+
+        <div class="form-section">
+
+            <label>Username</label>
+
+            <input
+                type="text"
+                [(ngModel)]="username"
+                placeholder="Enter username">
+
+            <label>Password</label>
+
+            <input
+                type="password"
+                [(ngModel)]="password"
+                placeholder="Enter password">
+
+            <button
+                class="login-btn"
+                (click)="login()">
+
+                Login
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>

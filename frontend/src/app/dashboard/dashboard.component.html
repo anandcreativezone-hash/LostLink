@@ -1,0 +1,81 @@
+<div class="dashboard-page">
+
+    <!-- Animated Background Shapes -->
+
+    <div class="shape shape1"></div>
+    <div class="shape shape2"></div>
+    <div class="shape shape3"></div>
+
+    <div class="dashboard-card">
+
+        <h1 class="dashboard-title">
+            Lost & Found Dashboard
+        </h1>
+
+        <p class="dashboard-subtitle">
+            Manage lost items, found items, matches and communication.
+        </p>
+
+        <div class="dashboard-grid">
+
+            <button
+                class="dashboard-btn"
+                (click)="createLostItem()">
+
+                Create Lost Item
+
+            </button>
+
+            <button
+                class="dashboard-btn"
+                (click)="viewMyLostItems()">
+
+                My Lost Items
+
+            </button>
+
+            <button
+                class="dashboard-btn"
+                (click)="createFoundItem()">
+
+                 Create Found Item
+
+            </button>
+
+            <button
+                class="dashboard-btn"
+                (click)="viewMyFoundItems()">
+
+                 My Found Items
+
+            </button>
+
+            <button
+                class="dashboard-btn message-btn"
+                routerLink="/messages">
+
+                 Messages / Complaints
+
+                <span
+                    *ngIf="unreadCount > 0"
+                    class="notification-badge">
+
+                    {{ unreadCount }}
+
+                </span>
+
+            </button>
+
+            <button
+                class="dashboard-btn logout-btn"
+                (click)="logout()">
+
+                 Logout
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>

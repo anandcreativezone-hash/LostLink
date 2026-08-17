@@ -1,0 +1,93 @@
+<div class="archive-page">
+
+    <div class="page-header">
+
+        <button
+        routerLink="/admindashboard"
+        class="back-btn">
+
+            ← Dashboard
+
+        </button>
+
+        <h1>Resolved Items Archive</h1>
+
+        <p>
+            All successfully completed Lost & Found cases are archived here for administrative review.
+        </p>
+
+    </div>
+
+    <div
+    class="archive-card"
+    *ngFor="let item of items">
+
+        <img
+        *ngIf="item.image"
+        [src]="'http://localhost:8000' + item.image">
+
+        <div class="archive-content">
+
+            <h2>{{item.title}}</h2>
+
+            <p>
+
+                <strong>Category:</strong>
+
+                {{item.category}}
+
+            </p>
+
+            <p>
+
+                <strong>Location:</strong>
+
+                {{item.location}}
+
+            </p>
+
+            <span class="resolved-badge">
+
+                ✓ Resolved
+
+            </span>
+
+            <button
+
+            class="details-btn"
+
+            [routerLink]="['/admin-details',item.id]">
+
+                See Details
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <div
+    class="empty-card"
+    *ngIf="items.length==0">
+
+        <div class="icon">
+
+            📦
+
+        </div>
+
+        <h2>
+
+            No Archived Items
+
+        </h2>
+
+        <p>
+
+            Resolved items will automatically appear here.
+
+        </p>
+
+    </div>
+
+</div>

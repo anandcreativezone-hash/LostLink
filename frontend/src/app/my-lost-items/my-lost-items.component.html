@@ -1,0 +1,182 @@
+<div class="lost-items-page">
+
+
+<div class="header-card">
+
+    <div class="top-actions">
+
+        <button
+        routerLink="/dashboard"
+        class="dashboard-btn">
+
+            ← Dashboard
+
+        </button>
+
+        <button
+        routerLink="/manual-found-items"
+        class="manual-btn">
+
+            Find Manually
+
+        </button>
+
+    </div>
+
+    <h1>
+        My Lost Items
+    </h1>
+
+    <p>
+        Manage your lost item reports, review AI matches,
+        search manually, update details and track recovery progress.
+    </p>
+
+</div>
+
+<div
+*ngFor="let item of lostitems"
+class="item-card">
+
+    <div class="image-section">
+
+        <img
+        *ngIf="item.image"
+        [src]="'http://localhost:8000' + item.image"
+        alt="Lost Item">
+
+    </div>
+
+    <div class="item-content">
+
+        <div class="title-row">
+
+            <h2>{{item.title}}</h2>
+
+            <span class="status-badge">
+                {{item.status}}
+            </span>
+
+        </div>
+
+        <p class="description">
+            {{item.description}}
+        </p>
+
+        <div class="info-grid">
+
+            <div>
+                <strong>Category</strong>
+                <span>{{item.category}}</span>
+            </div>
+
+            <div>
+                <strong>Location</strong>
+                <span>{{item.location}}</span>
+            </div>
+
+            <div>
+                <strong>Date Lost</strong>
+                <span>{{item.date_lost}}</span>
+            </div>
+
+            <div>
+                <strong>Reward</strong>
+                <span>₹{{item.reward}}</span>
+            </div>
+
+        </div>
+
+        <div class="button-group">
+
+            <button
+            class="match-btn"
+            (click)="viewMatches(item.id)">
+
+                AI Matches
+
+            </button>
+
+            <button
+            routerLink="/manual-found-items"
+            class="manual-search-btn">
+
+                Find Manually
+
+            </button>
+
+            <button
+            class="edit-btn"
+            (click)="editItem(item)">
+
+                Edit
+
+            </button>
+
+            <button
+            class="delete-btn"
+            (click)="deleteItem(item.id)">
+
+                Delete
+
+            </button>
+
+            <a
+            *ngIf="item.image"
+            class="download-btn"
+            [href]="'http://localhost:8000' + item.image"
+            download>
+
+                Download Image
+
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div
+*ngIf="editMode"
+class="edit-card">
+
+    <h2>Edit Lost Item</h2>
+
+    <input
+    placeholder="Title"
+    [(ngModel)]="selectedItem.title">
+
+    <textarea
+    placeholder="Description"
+    [(ngModel)]="selectedItem.description">
+    </textarea>
+
+    <input
+    placeholder="Category"
+    [(ngModel)]="selectedItem.category">
+
+    <input
+    placeholder="Location"
+    [(ngModel)]="selectedItem.location">
+
+    <input
+    type="date"
+    [(ngModel)]="selectedItem.date_lost">
+
+    <input
+    type="number"
+    [(ngModel)]="selectedItem.reward">
+
+    <button
+    class="save-btn"
+    (click)="updateItem()">
+
+        Save Changes
+
+    </button>
+
+</div>
+
+
+</div>

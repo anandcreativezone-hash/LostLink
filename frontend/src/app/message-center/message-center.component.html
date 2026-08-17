@@ -1,0 +1,163 @@
+<div class="message-page">
+<div class="top-buttons">
+
+    <button
+    routerLink="/dashboard"
+    class="dashboard-btn">
+
+        ← Dashboard
+
+    </button>
+
+</div>
+
+<div class="message-container">
+
+    <div class="compose-card">
+
+        <h2>Message Center</h2>
+
+        <p class="subtitle">
+            Contact users regarding lost or found items.
+            Complaints are automatically routed to administrators.
+        </p>
+
+        <label>Type</label>
+
+        <select
+        [(ngModel)]="messageType"
+        (change)="onMessageTypeChange()">
+
+            <option value="Message">
+                Message
+            </option>
+
+            <option value="Complaint">
+                Complaint
+            </option>
+
+        </select>
+
+        <label>To</label>
+
+        <input
+        type="text"
+        placeholder="Username"
+        [(ngModel)]="receiver"
+        [readonly]="messageType==='Complaint'">
+
+        <label>Subject</label>
+
+        <input
+        type="text"
+        placeholder="Enter subject"
+        [(ngModel)]="subject">
+
+        <label>Message</label>
+
+        <textarea
+        rows="6"
+        placeholder="Type your message..."
+        [(ngModel)]="message">
+        </textarea>
+
+        <label>Attachment</label>
+
+        <input
+        type="file"
+        (change)="onFileSelected($event)">
+
+        <button
+        class="send-btn"
+        (click)="sendMessage()">
+
+            Send Message
+
+        </button>
+
+    </div>
+
+    <div class="inbox-card">
+
+        <div class="inbox-header">
+
+            <h3>Inbox</h3>
+
+            <span class="badge-box">
+
+                {{ inbox.length }}
+
+            </span>
+
+        </div>
+
+        <div
+        class="message-item"
+        *ngFor="let msg of inbox">
+
+            <h4>
+
+                {{ msg.subject }}
+
+                <span
+                *ngIf="msg.is_complaint"
+                class="complaint-tag">
+
+                    Complaint
+
+                </span>
+
+            </h4>
+
+            <p>
+
+                From:
+                <strong>
+
+                    {{ msg.sender_username }}
+
+                </strong>
+
+            </p>
+
+            <p>
+
+                {{ msg.message }}
+
+            </p>
+
+            <div *ngIf="msg.attachment">
+
+                <a
+                class="download-btn"
+                [href]="'http://localhost:8000'+msg.attachment"
+                target="_blank">
+
+                    Download Attachment
+
+                </a>
+
+            </div>
+
+            <small>
+
+                {{ msg.created_at | date:'dd MMM yyyy, hh:mm a' }}
+
+            </small>
+
+        </div>
+
+        <div
+        class="empty-box"
+        *ngIf="inbox.length==0">
+
+            No Messages Yet
+
+        </div>
+
+    </div>
+
+</div>
+
+
+</div>

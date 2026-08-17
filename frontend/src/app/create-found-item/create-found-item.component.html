@@ -1,0 +1,120 @@
+<div class="found-page">
+<div class="top-buttons">
+
+    <button
+    routerLink="/dashboard"
+    class="dashboard-btn">
+
+        ← Dashboard
+
+    </button>
+
+</div>
+    <div class="found-card">
+
+        <div class="icon-box"></div>
+
+        <h1 class="title">
+            Report Found Item
+        </h1>
+
+        <p class="subtitle">
+            Help reunite owners with their belongings by submitting
+            accurate information about items you have discovered.
+            Detailed reports improve matching accuracy and increase
+            the chances of a successful recovery.
+        </p>
+
+        <div class="instruction-box">
+
+            <h5>Guidelines</h5>
+
+            <ul>
+                <li>Use a clear item title.</li>
+                <li>Provide detailed descriptions.</li>
+                <li>Select the correct category.</li>
+                <li>Enter the location where it was found.</li>
+                <li>Upload an image whenever possible.</li>
+            </ul>
+
+        </div>
+
+        <div class="form-section">
+
+            <input
+            type="text"
+            placeholder="Title"
+            [(ngModel)]="title">
+
+            <textarea
+            placeholder="Description"
+            [(ngModel)]="description"></textarea>
+
+            <select [(ngModel)]="category">
+
+                <option value="">
+                    Select Category
+                </option>
+
+                <option value="Electronics">
+                    Electronics
+                </option>
+
+                <option value="Document">
+                    Document
+                </option>
+
+                <option value="Accessory">
+                    Accessory
+                </option>
+
+                <option value="Wallet">
+                    Wallet
+                </option>
+
+                <option value="Keys">
+                    Keys
+                </option>
+
+                <option value="Clothing">
+                    Clothing
+                </option>
+
+                <option value="Other">
+                    Other
+                </option>
+
+            </select>
+
+            <input
+            type="text"
+            placeholder="Location"
+            [(ngModel)]="location">
+
+            <input
+            type="date"
+            [(ngModel)]="date_found">
+
+            <label class="upload-label">
+                Upload Item Image
+            </label>
+
+            <input
+            class="file-input"
+            type="file"
+            accept="image/*"
+            (change)="onFileSelected($event)">
+
+            <button
+            class="submit-btn"
+            (click)="submit()">
+
+                Submit Found Item
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,232 @@
+.home-container{
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    position:relative;
+
+    background:linear-gradient(
+        -45deg,
+        #0f172a,
+        #1e293b,
+        #312e81,
+        #0f766e
+    );
+
+    background-size:400% 400%;
+
+    animation:gradientMove 12s ease infinite;
+
+    overflow:hidden;
+}
+
+/* SMALL NAVBAR */
+
+.top-navbar{
+
+    position:absolute;
+
+    top:18px;
+
+    right:25px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    z-index:100;
+}
+
+.brand{
+
+    color:white;
+
+    font-size:0.9rem;
+
+    font-weight:600;
+
+    opacity:0.8;
+}
+
+.admin-btn{
+
+    border:none;
+
+    padding:8px 16px;
+
+    border-radius:12px;
+
+    background:rgba(255,255,255,0.12);
+
+    backdrop-filter:blur(10px);
+
+    color:white;
+
+    font-size:0.85rem;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:0.3s;
+
+    border:1px solid rgba(255,255,255,0.15);
+}
+
+.admin-btn:hover{
+
+    transform:translateY(-2px);
+
+    background:rgba(255,255,255,0.18);
+}
+
+/* MAIN CARD */
+
+.glass-card{
+
+    width:750px;
+
+    padding:50px;
+
+    border-radius:30px;
+
+    background:rgba(255,255,255,0.08);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,0.15);
+
+    box-shadow:
+    0 25px 60px rgba(0,0,0,0.35);
+
+    text-align:center;
+
+    animation:floatCard 5s ease-in-out infinite;
+}
+
+.logo-box{
+
+    width:90px;
+
+    height:90px;
+
+    margin:auto;
+
+    margin-bottom:25px;
+
+    border-radius:25px;
+
+    background:linear-gradient(
+        135deg,
+        #60a5fa,
+        #22c55e
+    );
+
+    transform:rotate(15deg);
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,0.25);
+}
+
+.title{
+
+    color:white;
+
+    font-size:3.5rem;
+
+    font-weight:700;
+
+    margin-bottom:10px;
+}
+
+.subtitle{
+
+    color:#d1d5db;
+
+    font-size:1.1rem;
+
+    margin-bottom:40px;
+}
+
+.button-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:20px;
+}
+
+.portal-btn{
+
+    height:150px;
+
+    border:none;
+
+    border-radius:25px;
+
+    background:rgba(255,255,255,0.08);
+
+    backdrop-filter:blur(12px);
+
+    color:white;
+
+    font-size:1.2rem;
+
+    font-weight:600;
+
+    border:1px solid rgba(255,255,255,0.15);
+
+    transition:all 0.35s ease;
+
+    cursor:pointer;
+}
+
+.portal-btn:hover{
+
+    transform:
+    translateY(-10px)
+    scale(1.05);
+
+    background:rgba(255,255,255,0.15);
+
+    box-shadow:
+    0 20px 35px rgba(0,0,0,0.35);
+}
+
+@keyframes gradientMove{
+
+    0%{
+        background-position:0% 50%;
+    }
+
+    50%{
+        background-position:100% 50%;
+    }
+
+    100%{
+        background-position:0% 50%;
+    }
+}
+
+@keyframes floatCard{
+
+    0%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(-8px);
+    }
+
+    100%{
+        transform:translateY(0px);
+    }
+}

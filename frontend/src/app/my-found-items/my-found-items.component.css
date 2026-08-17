@@ -1,0 +1,305 @@
+.found-page{
+
+    min-height:100vh;
+
+    padding:40px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #0f172a,
+        #1e293b,
+        #0f766e
+    );
+
+}
+
+.header-section{
+
+    text-align:center;
+
+    margin-bottom:40px;
+
+}
+
+.page-title{
+
+    color:white;
+
+    font-size:3rem;
+
+    font-weight:700;
+
+}
+
+.page-subtitle{
+
+    color:#cbd5e1;
+
+    max-width:800px;
+
+    margin:auto;
+
+    font-size:1rem;
+
+}
+
+.item-card{
+
+    max-width:900px;
+
+    margin:auto;
+
+    margin-bottom:30px;
+
+    background:rgba(255,255,255,0.08);
+
+    backdrop-filter:blur(15px);
+
+    border:1px solid rgba(255,255,255,0.15);
+
+    border-radius:25px;
+
+    padding:25px;
+
+    box-shadow:
+    0 15px 40px rgba(0,0,0,0.3);
+
+    transition:0.3s;
+
+}
+
+.item-card:hover{
+
+    transform:translateY(-5px);
+
+}
+
+.card-top{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:15px;
+
+}
+
+.card-top h2{
+
+    color:white;
+
+    margin:0;
+
+}
+
+.status-badge{
+
+    display:inline-block;
+
+    margin-top:10px;
+
+    padding:6px 14px;
+
+    border-radius:20px;
+
+    background:#22c55e;
+
+    color:white;
+
+    font-size:0.8rem;
+
+}
+
+.item-image{
+
+    width:100%;
+
+    max-height:350px;
+
+    object-fit:cover;
+
+    border-radius:15px;
+
+    margin:15px 0;
+
+}
+
+.download-btn{
+
+    display:inline-block;
+
+    padding:10px 18px;
+
+    background:#2563eb;
+
+    color:white;
+
+    text-decoration:none;
+
+    border-radius:10px;
+
+    margin-bottom:15px;
+
+}
+
+.download-btn:hover{
+
+    background:#1d4ed8;
+
+}
+
+.item-info{
+
+    color:#e2e8f0;
+
+}
+
+.item-info p{
+
+    margin-bottom:10px;
+
+}
+
+.button-group{
+
+    display:flex;
+
+    gap:15px;
+
+    margin-top:20px;
+
+}
+
+.edit-btn{
+
+    border:none;
+
+    background:#f59e0b;
+
+    color:white;
+
+    padding:12px 22px;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+}
+
+.delete-btn{
+
+    border:none;
+
+    background:#ef4444;
+
+    color:white;
+
+    padding:12px 22px;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+}
+
+.edit-section{
+
+    padding:40px;
+
+}
+
+.edit-card{
+
+    max-width:700px;
+
+    margin:auto;
+
+    background:white;
+
+    border-radius:25px;
+
+    padding:30px;
+
+    box-shadow:
+    0 15px 40px rgba(0,0,0,0.2);
+
+}
+
+.edit-card h2{
+
+    margin-bottom:20px;
+
+}
+
+.edit-card input,
+.edit-card textarea{
+
+    width:100%;
+
+    margin-bottom:15px;
+
+    padding:12px;
+
+    border-radius:12px;
+
+    border:1px solid #cbd5e1;
+
+}
+
+.save-btn{
+
+    width:100%;
+
+    border:none;
+
+    background:#22c55e;
+
+    color:white;
+
+    padding:14px;
+
+    border-radius:12px;
+
+    font-weight:600;
+
+}
+.header-buttons{
+
+    display:flex;
+
+    justify-content:flex-start;
+
+    margin-bottom:20px;
+
+}
+
+.dashboard-btn{
+
+    background:#1e3a8a;
+
+    color:white;
+
+    border:none;
+
+    padding:10px 18px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+    transition:0.3s;
+
+}
+
+.dashboard-btn:hover{
+
+    background:#2563eb;
+
+    transform:translateY(-2px);
+
+}

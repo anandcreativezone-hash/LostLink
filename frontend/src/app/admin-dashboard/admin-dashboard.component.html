@@ -1,0 +1,164 @@
+<div class="dashboard-container">
+
+    <div class="dashboard-header">
+
+        <div class="admin-actions">
+
+    <button
+    routerLink="/messages"
+    class="action-btn message-btn">
+
+         Messages
+
+    </button>
+
+    <button
+    routerLink="/message-archive"
+    class="action-btn archive-btn">
+
+        Message Archive
+
+    </button>
+
+    <button
+    class="action-btn list-btn" routerLink="/admin-list">
+
+        All Items
+
+    </button>
+
+    <button
+    routerLink="/admin-login"
+    class="action-btn logout-btn">
+
+        Logout
+
+    </button>
+
+</div>
+
+        <h1>
+            Authority Control Center
+        </h1>
+
+        <p>
+            User Approval & Access Management System
+        </p>
+
+    </div>
+
+    <!-- Statistics -->
+
+    <div class="stats-row">
+
+        <div class="stat-card">
+
+            <h2>
+                {{pendingUsers.length}}
+            </h2>
+
+            <span>
+                Pending Requests
+            </span>
+
+        </div>
+
+        <div class="stat-card">
+
+            <h2>
+                {{approvedUsers.length}}
+            </h2>
+
+            <span>
+                Approved Users
+            </span>
+
+        </div>
+
+    </div>
+
+    <!-- Pending Users -->
+
+    <h3 class="section-title">
+
+        Pending Registration Requests
+
+    </h3>
+
+    <div
+        class="user-card"
+        *ngFor="let user of pendingUsers">
+
+        <div class="user-info">
+
+            <h4>
+                {{user.username}}
+            </h4>
+
+            <p>
+                {{user.email}}
+            </p>
+
+        </div>
+
+        <div class="action-buttons">
+
+            <button
+                class="approve-btn"
+                (click)="approveUser(user.id)">
+
+                Approve
+
+            </button>
+
+            <button
+                class="delete-btn"
+                (click)="deleteUser(user.id)">
+
+                Delete
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- Approved Users -->
+
+    <h3 class="section-title mt-5">
+
+        Approved Users
+
+    </h3>
+
+    <div
+        class="user-card approved"
+        *ngFor="let user of approvedUsers">
+
+        <div class="user-info">
+
+            <h4>
+                {{user.username}}
+            </h4>
+
+            <p>
+                {{user.email}}
+            </p>
+
+        </div>
+
+        <div class="action-buttons">
+
+            <button
+                class="delete-btn"
+                (click)="deleteUser(user.id)">
+
+                Remove User
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>

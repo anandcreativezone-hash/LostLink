@@ -1,0 +1,125 @@
+<div class="lost-page">
+<div class="top-buttons">
+
+    <button
+    routerLink="/dashboard"
+    class="dashboard-btn">
+
+        ← Dashboard
+
+    </button>
+
+</div>
+    <div class="lost-card">
+
+        <div class="icon-box"></div>
+
+        <h1 class="title">
+            Report Lost Item
+        </h1>
+
+        <p class="subtitle">
+            Submit accurate information about your lost item.
+            Detailed reports improve AI matching accuracy and
+            increase the chances of successful recovery.
+        </p>
+
+        <div class="instruction-box">
+
+            <h5>Guidelines</h5>
+
+            <ul>
+                <li>Use a clear title.</li>
+                <li>Provide detailed descriptions.</li>
+                <li>Select the correct category.</li>
+                <li>Enter the last known location.</li>
+                <li>Add a reward if applicable.</li>
+            </ul>
+
+        </div>
+
+        <div class="form-section">
+
+            <input
+            type="text"
+            placeholder="Title"
+            [(ngModel)]="title">
+
+            <textarea
+            placeholder="Description"
+            [(ngModel)]="description"></textarea>
+
+            <select [(ngModel)]="category">
+
+                <option value="">
+                    Select Category
+                </option>
+
+                <option value="Electronics">
+                    Electronics
+                </option>
+
+                <option value="Document">
+                    Document
+                </option>
+
+                <option value="Accessory">
+                    Accessory
+                </option>
+
+                <option value="Wallet">
+                    Wallet
+                </option>
+
+                <option value="Keys">
+                    Keys
+                </option>
+
+                <option value="Clothing">
+                    Clothing
+                </option>
+
+                <option value="Other">
+                    Other
+                </option>
+
+            </select>
+
+            <input
+            type="text"
+            placeholder="Location"
+            [(ngModel)]="location">
+
+            <input
+            type="date"
+            [(ngModel)]="date_lost">
+
+            <input
+            type="number"
+            placeholder="Reward"
+            [(ngModel)]="reward">
+            <div class="file-upload">
+
+    <label>
+        Upload Item Image
+    </label>
+
+    <input
+    type="file"
+    accept="image/*"
+    (change)="onFileSelected($event)">
+
+</div>
+            <button
+            class="submit-btn"
+            (click)="submit()">
+
+                Submit Report
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>

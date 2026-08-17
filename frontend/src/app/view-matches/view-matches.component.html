@@ -1,0 +1,101 @@
+<div class="matches-container">
+
+    <div class="page-header">
+
+        <h1>🤖 AI Match Analysis</h1>
+
+        <p>
+            Our AI has analyzed your lost item and found the following potential matches.
+            Higher confidence scores indicate stronger similarity.
+        </p>
+
+    </div>
+
+    <div
+    *ngFor="let match of matches"
+    class="match-card">
+
+        <div class="score-section">
+
+            <div class="score-circle">
+
+                {{match.score}}%
+
+            </div>
+
+            <span class="confidence">
+
+                Confidence
+
+            </span>
+
+        </div>
+
+        <div class="match-content">
+
+            <h2>
+
+                Potential Match Detected
+
+            </h2>
+
+            <p>
+
+                A found item has been identified that closely matches your report.
+                Review its details before submitting a claim.
+
+            </p>
+
+            <div class="ai-bar">
+
+                <div
+                class="progress"
+                [style.width.%]="match.score">
+
+                </div>
+
+            </div>
+
+            <button
+            class="details-btn"
+            (click)="viewDetails(match.found_item_id)">
+
+                🔍 View Match Details
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <div
+    *ngIf="matches.length==0"
+    class="no-match">
+
+        <div class="empty-icon">
+
+            🤖
+
+        </div>
+
+        <h2>
+
+            No Matches Yet
+
+        </h2>
+
+        <p>
+
+            Our AI couldn't find any matching found items at the moment.
+
+        </p>
+
+        <small>
+
+            As new found items are reported, potential matches will automatically appear here.
+
+        </small>
+
+    </div>
+
+</div>

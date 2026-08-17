@@ -1,0 +1,212 @@
+<div class="found-page">
+
+    <div class="header-section">
+
+    <div class="header-buttons">
+
+        <button
+        routerLink="/dashboard"
+        class="dashboard-btn">
+
+            ← Dashboard
+
+        </button>
+
+    </div>
+
+    <h1 class="page-title">
+        My Found Items
+    </h1>
+
+    <p class="page-subtitle">
+        Manage all items you have reported as found.
+        Review details, update information, and track ownership claims.
+    </p>
+
+</div>
+
+    <div
+    class="item-card"
+    *ngFor="let item of founditems">
+
+        <div class="card-top">
+
+            <div>
+
+                <h2>
+                    {{item.title}}
+                </h2>
+
+                <span class="status-badge">
+                    {{item.status}}
+                </span>
+
+            </div>
+
+        </div>
+
+        <img
+        *ngIf="item.image"
+        [src]="'http://localhost:8000' + item.image"
+        class="item-image">
+
+        <a
+        *ngIf="item.image"
+        [href]="'http://localhost:8000' + item.image"
+        download
+        class="download-btn">
+
+            Download Image
+
+        </a>
+
+        <div class="item-info">
+
+            <p>
+                <strong>Description:</strong>
+                {{item.description}}
+            </p>
+
+            <p>
+                <strong>Category:</strong>
+                {{item.category}}
+            </p>
+
+            <p>
+                <strong>Location:</strong>
+                {{item.location}}
+            </p>
+
+            <p>
+                <strong>Date Found:</strong>
+                {{item.date_found}}
+            </p>
+            <div *ngIf="item.status == 'Claim Pending'" class="claim-section">
+
+    <p>
+
+        <strong>Claimed By:</strong>
+
+        {{item.claimant_username}}
+
+    </p>
+
+    <!-- CLAIM NOT YET ACCEPTED -->
+
+    <div
+    class="button-group"
+    *ngIf="!item.claim_accepted">
+
+        <button
+        class="accept-btn"
+        (click)="acceptClaim(item.id)">
+
+            Accept Claim
+
+        </button>
+
+        <button
+        class="reject-btn"
+        (click)="rejectClaim(item.id)">
+
+            Reject Claim
+
+        </button>
+
+    </div>
+
+    <!-- CLAIM ACCEPTED -->
+
+    <div
+    class="button-group"
+    *ngIf="item.claim_accepted">
+
+        <span class="accepted-label">
+
+            ✓ Claim Accepted
+
+        </span>
+
+        <button
+        class="resolve-btn"
+        (click)="resolveClaim(item.id)">
+
+            Mark As Resolved
+
+        </button>
+
+    </div>
+
+
+
+</div>
+        </div>
+
+        <div class="button-group">
+
+            <button
+            class="edit-btn"
+            (click)="editItem(item)">
+
+                Edit
+
+            </button>
+
+            <button
+            class="delete-btn"
+            (click)="deleteItem(item.id)">
+
+                Delete
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- EDIT SECTION -->
+
+<div
+class="edit-section"
+*ngIf="editMode">
+
+    <div class="edit-card">
+
+        <h2>
+            Edit Found Item
+        </h2>
+
+        <input
+        placeholder="Title"
+        [(ngModel)]="selectedItem.title">
+
+        <textarea
+        placeholder="Description"
+        [(ngModel)]="selectedItem.description">
+        </textarea>
+
+        <input
+        placeholder="Category"
+        [(ngModel)]="selectedItem.category">
+
+        <input
+        placeholder="Location"
+        [(ngModel)]="selectedItem.location">
+
+        <input
+        type="date"
+        [(ngModel)]="selectedItem.date_found">
+
+        <button
+        class="save-btn"
+        (click)="updateItem()">
+
+            Save Changes
+
+        </button>
+
+    </div>
+
+</div>

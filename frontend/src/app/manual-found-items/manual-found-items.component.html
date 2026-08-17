@@ -1,0 +1,144 @@
+<div class="manual-page">
+
+    <div class="top-buttons">
+
+        <button
+        routerLink="/dashboard"
+        class="dashboard-btn">
+
+            ← Back to Dashboard
+
+        </button>
+
+    </div>
+
+    <div class="header-box">
+
+        <h1>
+            Manual Found Items
+        </h1>
+
+        <p>
+            Browse all currently available found items.
+            If you identify your missing property, review its details and submit a claim request.
+        </p>
+
+    </div>
+
+    <div class="filter-bar">
+
+        <input
+        type="text"
+        placeholder="🔍 Search Item..."
+        [(ngModel)]="searchText"
+        (input)="applyFilter()">
+
+        <select
+        [(ngModel)]="selectedCategory"
+        (change)="applyFilter()">
+
+            <option value="">
+                All Categories
+            </option>
+
+            <option value="Electronics">
+                Electronics
+            </option>
+
+            <option value="Document">
+                Document
+            </option>
+
+            <option value="Accessory">
+                Accessory
+            </option>
+
+            <option value="Wallet">
+                Wallet
+            </option>
+
+            <option value="Keys">
+                Keys
+            </option>
+
+            <option value="Clothing">
+                Clothing
+            </option>
+
+            <option value="Other">
+                Other
+            </option>
+
+        </select>
+
+    </div>
+
+    <div class="items-grid">
+
+        <div
+        class="item-card"
+        *ngFor="let item of filteredItems">
+
+            <img
+            *ngIf="item.image"
+            [src]="'http://localhost:8000'+item.image">
+
+            <div class="card-body">
+
+                <h2>
+
+                    {{item.title}}
+
+                </h2>
+
+                <p class="description">
+
+                    {{item.description}}
+
+                </p>
+
+                <div class="info-grid">
+
+                    <div>
+
+                        <strong>Category</strong>
+
+                        <span>{{item.category}}</span>
+
+                    </div>
+
+                    <div>
+
+                        <strong>Location</strong>
+
+                        <span>{{item.location}}</span>
+
+                    </div>
+
+                </div>
+
+                <div class="status-row">
+
+                    <span class="status">
+
+                        {{item.status}}
+
+                    </span>
+
+                </div>
+
+                <button
+                class="details-btn"
+                [routerLink]="['/found-item-details',item.id]">
+
+                    View Details
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,274 @@
+.found-page{
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:40px;
+
+    background:
+    linear-gradient(
+        -45deg,
+        #0f172a,
+        #1e293b,
+        #1e3a8a,
+        #0f766e
+    );
+
+    background-size:400% 400%;
+
+    animation:gradientMove 12s ease infinite;
+}
+
+.found-card{
+
+    width:850px;
+
+    padding:40px;
+
+    border-radius:30px;
+
+    background:rgba(255,255,255,0.08);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,0.15);
+
+    box-shadow:
+    0 25px 60px rgba(0,0,0,0.35);
+
+    color:white;
+}
+
+.icon-box{
+
+    width:80px;
+
+    height:80px;
+
+    margin:auto;
+
+    margin-bottom:20px;
+
+    border-radius:20px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #22c55e,
+        #3b82f6
+    );
+
+    transform:rotate(12deg);
+}
+
+.title{
+
+    text-align:center;
+
+    font-size:2.8rem;
+
+    font-weight:700;
+
+    margin-bottom:15px;
+}
+
+.subtitle{
+
+    text-align:center;
+
+    color:#d1d5db;
+
+    margin-bottom:25px;
+
+    line-height:1.7;
+}
+
+.instruction-box{
+
+    background:rgba(255,255,255,0.06);
+
+    border:1px solid rgba(255,255,255,0.1);
+
+    border-radius:20px;
+
+    padding:20px;
+
+    margin-bottom:25px;
+}
+
+.instruction-box h5{
+
+    margin-bottom:15px;
+}
+
+.instruction-box ul{
+
+    margin:0;
+
+    padding-left:20px;
+}
+
+.instruction-box li{
+
+    margin-bottom:8px;
+}
+
+.form-section{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
+}
+
+.form-section input,
+.form-section textarea,
+.form-section select{
+
+    width:100%;
+
+    padding:14px;
+
+    border-radius:15px;
+
+    border:none;
+
+    background:rgba(255,255,255,0.08);
+
+    color:white;
+
+    outline:none;
+}
+
+.form-section textarea{
+
+    min-height:120px;
+
+    resize:none;
+}
+
+.form-section input::placeholder,
+.form-section textarea::placeholder{
+
+    color:#cbd5e1;
+}
+
+.form-section select option{
+
+    color:black;
+}
+
+.upload-label{
+
+    font-weight:600;
+
+    margin-top:5px;
+}
+
+.file-input{
+
+    padding:10px;
+}
+
+.submit-btn{
+
+    margin-top:10px;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:15px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #22c55e,
+        #3b82f6
+    );
+
+    color:white;
+
+    font-size:1rem;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+.submit-btn:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+    0 15px 30px rgba(0,0,0,0.3);
+}
+
+@keyframes gradientMove{
+
+    0%{
+        background-position:0% 50%;
+    }
+
+    50%{
+        background-position:100% 50%;
+    }
+
+    100%{
+        background-position:0% 50%;
+    }
+
+}
+.top-buttons{
+
+    position:absolute;
+
+    top:30px;
+
+    left:30px;
+
+    z-index:1000;
+
+}
+
+.dashboard-btn{
+
+    background:#1e3a8a;
+
+    color:white;
+
+    border:none;
+
+    padding:12px 22px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+    font-size:15px;
+
+    box-shadow:0 4px 10px rgba(0,0,0,0.15);
+
+    transition:all 0.3s ease;
+
+}
+
+.dashboard-btn:hover{
+
+    background:#2563eb;
+
+    transform:translateY(-2px);
+
+    box-shadow:0 6px 14px rgba(0,0,0,0.2);
+
+}
